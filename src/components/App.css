@@ -1,5 +1,6 @@
 body {
-  background-color: #dbf6e9;
+  /*background-color: #dbf6e9;*/
+  background-color: #ededed;
 }
 
 .heading{
@@ -19,7 +20,8 @@ body {
 }
 
 .navbar-color {
-  background-color: #1abc9c;
+  /*background-color: #1abc9c;*/
+  background-color: #009688;
 }
 
 /* Home Component */
@@ -42,7 +44,7 @@ body {
   background-image: url("../background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
+  padding: 11% 0;
 }
 
 .agroworld {
@@ -194,6 +196,13 @@ body {
 /* Styling for the Product Component */
 .card-style {
   width: 20rem;
+  box-shadow: -1px 4px 18px #888888;
+  border-radius: 30px; 
+  overflow: hidden;
+}
+.card-style:hover {
+  cursor: pointer;
+  transform: scale(1.1,1.1);
 }
 .card-img {
   width: 318px;
@@ -201,11 +210,13 @@ body {
 }
 .card-title {
   font-size: 1.5rem;
+  text-align: center;
 }
 .mrp-style {
-  color: #383e56;
+  color: white;
   font-weight: 600;
   font-size: 1.2rem;
+  text-align: center;
 }
 .desc-style {
   color: #727272;
