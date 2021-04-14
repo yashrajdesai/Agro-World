@@ -8,22 +8,24 @@ import Button from 'react-bootstrap/Button'
 
 function Orders() {
 
-    const [clicked,setClick]=useState(false);
-    const [buttonName,setButton]=useState("");
+    const [clicked,setClick]=useState(true);
+    const [buttonName,setButton]=useState("bought");
+    const [boughtClickedByDefault,setBoughtClickedByDefault] =useState(true);
 
     function handleClick(event){
         setClick(true);
         setButton(event.target.id);
+        setBoughtClickedByDefault(false);
     }
     return (
         <div>
-            {/*<h1 className="text-center mt-4 heading">Orders</h1>*/}
+            {/*<h1 className="text-center mt-4 heading">Orders</h1>*/}s
             <div className="center">
+            <Button variant="success" style={ boughtClickedByDefault ? {background: '#ededed',color: '#70c745', border: '2px solid #70c745',boxShadow: '0px 1px 0px 3px #9ad0a7'} : null } className="order-button" id="bought" onClick={handleClick}>
+                BOUGHT
+            </Button>
             <Button variant="success" className="order-button" id="sold" onClick={handleClick}>
                 SOLD
-            </Button>
-            <Button variant="success" className="order-button" id="bought" onClick={handleClick}>
-                BOUGHT
             </Button>
             </div>
             <Row>

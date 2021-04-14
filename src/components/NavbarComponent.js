@@ -29,11 +29,11 @@ function NavbarComponent()
                             
                     <NavDropdown className="ml-4 mr-4" title={<span className="dropdown-text">Categories</span>} id="basic-nav-dropdown">
                         <LinkContainer to='/CerealsAndPulses'>  
-                            <NavDropdown.Item>Cereals & Pulses</NavDropdown.Item>
+                            <NavDropdown.Item >Cereals & Pulses</NavDropdown.Item>
                         </LinkContainer>   
                         <NavDropdown.Divider />
                         <LinkContainer to='/vegetables'>   
-                            <NavDropdown.Item>Vegetables</NavDropdown.Item>
+                            <NavDropdown.Item >Vegetables</NavDropdown.Item>
                         </LinkContainer>   
                         <NavDropdown.Divider />
                         <LinkContainer to='/fruits'>  

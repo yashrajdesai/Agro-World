@@ -39,7 +39,12 @@ body {
   color: #70c745 ;
 }
 
-/* Home Component */
+/*.nav-dropdown{
+  color: white;
+  background-color: black;
+}*/
+
+  /* Home Component */
 
 .statistics-strip {
   text-align: center;
@@ -62,7 +67,7 @@ body {
 }
 
 .jumbotron {
-  background-image: url("../jumbotron2.jpg");
+  background-image: url("../jumbotronBackground.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   padding: 11% 0;
@@ -72,7 +77,7 @@ body {
   text-align: center;
   font-size: 150px;
   color: #3E1E10;
-  margin: 0px auto 150px;
+  margin: 0px auto 160px;
   font-family: "Lobster", cursive;
 }
 /*Sell Page*/
@@ -229,7 +234,7 @@ body {
   height: 178.63px;
 }
 .card-title {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   text-align: center;
 }
 .mrp-style {
@@ -296,7 +301,7 @@ body {
   background: #70c745; 
   font-size: 25px ;
   height: 50px;
-  margin: 15px 15px 0px;
+  margin: 15px 15px 20px;
   outline: none;
 }
 .order-button:hover{
@@ -308,5 +313,135 @@ body {
   background: #ededed;
   color: #70c745;
   border: 2px solid #70c745;
+  margin: 15px 15px 20px;
+}
+
+
+
+/* Styling For modal */
+
+.modal-image{
+  height: 300px;
+  width:  350px;
+  box-shadow: -1px 4px 18px #888888;
+  border-radius: 30px; 
+  overflow: hidden;
+}
+/* .modal-card{
+  border-radius: 30px; 
+  box-shadow: -1px 4px 18px #888888;
+} */
+.modal-title{
+  font-size: 2.5rem;
+  color:#fff;
+  width: 100%;
+  text-align: center;
+  font-family: "Lobster", cursive;;
+}
+.modal-title-card{
+  background-color: #70c745;
+}
+.card-title-modal{
+  font-size: 2rem;
+}
+.mrp-style-modal{
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+
+/* Loader styling */
+.loader {
+  background-color: #70c745;
+  /* //background: radial-gradient(#222, #000); */
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99999;
+}
+
+.loader-inner {
+  bottom: 0;
+  height: 60px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+}
+
+.loader-line-wrap {
+  animation: 
+  spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite
+;
+  box-sizing: border-box;
+  height: 50px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transform-origin: 50% 100%;
+  width: 100px;
+}
+.loader-line {
+  border: 4px solid transparent;
+  border-radius: 100%;
+  box-sizing: border-box;
+  height: 100px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+}
+.loader-line-wrap:nth-child(1) { animation-delay: -50ms; }
+.loader-line-wrap:nth-child(2) { animation-delay: -100ms; }
+.loader-line-wrap:nth-child(3) { animation-delay: -150ms; }
+.loader-line-wrap:nth-child(4) { animation-delay: -200ms; }
+.loader-line-wrap:nth-child(5) { animation-delay: -250ms; }
+
+.loader-line-wrap:nth-child(1) .loader-line {
+  border-color: #fff;
+  height: 90px;
+  width: 90px;
+  top: 7px;
+}
+.loader-line-wrap:nth-child(2) .loader-line {
+  border-color: #fff;
+  height: 76px;
+  width: 76px;
+  top: 14px;
+}
+.loader-line-wrap:nth-child(3) .loader-line {
+  border-color:#fff;
+  height: 62px;
+  width: 62px;
+  top: 21px;
+}
+.loader-line-wrap:nth-child(4) .loader-line {
+  border-color: #fff;
+  height: 48px;
+  width: 48px;
+  top: 28px;
+}
+.loader-line-wrap:nth-child(5) .loader-line {
+  border-color: #fff;
+  height: 34px;
+  width: 34px;
+  top: 35px;
+}
+
+@keyframes spin {
+  0%, 15% {
+  transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
