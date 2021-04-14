@@ -23,10 +23,11 @@ function NavbarComponent()
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto navbar-content">
                     <LinkContainer to="/login">
-                        <Nav.Link className="ml-4 mr-4">Login/Sign Up</Nav.Link>
+                        {/*<Nav.Link className="ml-4 mr-4">Login/Sign Up</Nav.Link>*/}
+                        <Nav.Link className="ml-4 mr-4"><span className="linkText">Login/Sign Up</span></Nav.Link>
                     </LinkContainer>    
                             
-                    <NavDropdown className="ml-4 mr-4" title="Categories" id="basic-nav-dropdown">
+                    <NavDropdown className="ml-4 mr-4" title={<span className="dropdown-text">Categories</span>} id="basic-nav-dropdown">
                         <LinkContainer to='/CerealsAndPulses'>  
                             <NavDropdown.Item>Cereals & Pulses</NavDropdown.Item>
                         </LinkContainer>   
@@ -41,19 +42,23 @@ function NavbarComponent()
                     </NavDropdown>
 
                     <LinkContainer to="/orders">
-                        <Nav.Link  className="ml-4 mr-4">Orders</Nav.Link>
+                        {/*<Nav.Link  className="ml-4 mr-4">Orders</Nav.Link>*/}
+                        <Nav.Link  className="ml-4 mr-4"><span className="linkText">Orders</span></Nav.Link>
                     </LinkContainer>  
 
                     <LinkContainer to="/payment">
-                        <Nav.Link className="ml-4 mr-4">My Wallet</Nav.Link>
+                        {/*<Nav.Link className="ml-4 mr-4">My Wallet</Nav.Link>*/}
+                        <Nav.Link className="ml-4 mr-4"><span className="linkText">My Wallet</span></Nav.Link>
                     </LinkContainer>  
 
                     <LinkContainer to="/sell">
-                        <Nav.Link className="ml-4 mr-4">Sell</Nav.Link>
+                        {/*<Nav.Link className="ml-4 mr-4">Sell</Nav.Link>*/}
+                        <Nav.Link className="ml-4 mr-4"><span className="linkText">Sell</span></Nav.Link>
                     </LinkContainer>  
 
                     <LinkContainer to="/statistics">
-                        <Nav.Link className="ml-4 mr-4">Statistics</Nav.Link>
+                        {/*<Nav.Link className="ml-4 mr-4">Statistics</Nav.Link>*/}
+                        <Nav.Link className="ml-4 mr-4"><span className="linkText">Statistics</span></Nav.Link>
                     </LinkContainer>             
                 </Nav>
             </Navbar.Collapse>

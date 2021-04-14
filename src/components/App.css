@@ -21,27 +21,48 @@ body {
 
 .navbar-color {
   /*background-color: #1abc9c;*/
-  background-color: #009688;
+  /*background-color: #009688;*/
+  background-color: black;
+}
+
+.linkText{ color: white ; }
+
+.linkText:hover{ 
+  color: #70c745 ; 
+}
+
+.dropdown-text{
+  color: white;
+}
+
+.dropdown-text:hover{
+  color: #70c745 ;
 }
 
 /* Home Component */
 
 .statistics-strip {
   text-align: center;
-  background-color: #17a2b8;
+  /*background-color: #686868;*/
+  background-color: #85684A;
   color: white;
 }
 
 .statistics-anchor {
-  color: #28527a;
+  color: black;
+}
+
+.statistics-anchor:hover {
+  color: #3E1E10;
 }
 
 .donate-button {
-  background-color: #28527a;
+  background-color: #3E1E10;
+  color: white;
 }
 
 .jumbotron {
-  background-image: url("../background.jpg");
+  background-image: url("../jumbotron2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   padding: 11% 0;
@@ -49,12 +70,11 @@ body {
 
 .agroworld {
   text-align: center;
-  font-size: 100px;
-  margin: 100px auto;
-  color: #28527a;
+  font-size: 150px;
+  color: #3E1E10;
+  margin: 0px auto 150px;
   font-family: "Lobster", cursive;
 }
-
 /*Sell Page*/
 
 .Sell-Form {
@@ -258,19 +278,35 @@ body {
 /* Orders style */
 
 .order-image{
-  width: 500px;
-  height: 300px;
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  overflow: hidden;
 }
 .order-card{
+  margin: 4%;
   padding: 2%;
+  box-shadow: -1px 4px 18px #888888;
+  border-radius: 25px;
+  overflow: hidden;
 }
-.order-title{
-  font-size: 3rem;
-}
+
 .order-button{
   width: 130px;
-  background: #1C4D06; 
+  background: #70c745; 
   font-size: 25px ;
   height: 50px;
-  margin: 5px 15px;
+  margin: 15px 15px 0px;
+  outline: none;
 }
+.order-button:hover{
+  background: #ededed;
+  color: #70c745;
+  border: 2px solid #70c745;
+}
+.order-button:focus{
+  background: #ededed;
+  color: #70c745;
+  border: 2px solid #70c745;
+}
+
