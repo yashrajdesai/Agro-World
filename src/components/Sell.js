@@ -66,10 +66,10 @@ function Sell() {
     return (
         <div className="mt-5">
 
+            <div className="sell-title">
+                <strong>Enter The Product Details</strong>
+            </div>
             <div className="Sell-Form">
-                <div className="Sell-title">
-                    <strong>Enter your Product Details</strong>
-                </div>
                 <Form onSubmit={handleSubmit} className="px-4">
 
                     <Form.Group as={Row} controlId="SellerName">
