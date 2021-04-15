@@ -27,7 +27,7 @@ class Statistics extends React.Component {
 
     return (
         <div>
-            <h1 className="text-center mt-4">Statistics</h1>
+            <h1 className="text-center my-4 heading">Statistics</h1>
                 <Container>
                 <Row>
                     <Col xs={12} md={6}>
