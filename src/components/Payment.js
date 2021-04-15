@@ -30,7 +30,7 @@ class Payment1 extends Component {
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
     console.log(this.state.account);
-    const daiTokenAddress = "0xb6c35c68AFAC54303b2bB599F5d442B07244c90C" // Replace DAI Address Here
+    const daiTokenAddress = "0xD6E0b6AcAaff8bd4c0DEcfa45bDBDc67661Db0cE" // Replace DAI Address Here
     const daiTokenMock = new web3.eth.Contract(DaiTokenMock.abi, daiTokenAddress)
     this.setState({ daiTokenMock: daiTokenMock })
     console.log(daiTokenMock);
@@ -95,6 +95,7 @@ class Payment1 extends Component {
                       id="amount"
                       type="text"
                       ref={(input) => { this.amount = input }}
+                      
                       className="form-control"
                       placeholder="Amount"
                       required />
