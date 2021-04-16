@@ -67,17 +67,40 @@ body {
 }
 
 .jumbotron {
-  background-image: url("../jumbotronBackground.jpg");
+  
   background-size: cover;
   background-repeat: no-repeat;
   padding: 11% 0;
+}
+.slide1{
+  background-image: url("../jumbotron1.jpg");
+}
+.slide2{
+  background-image: url("../jumbotron.jpeg");
+}
+.slide3{
+  background-image: url("../jumbotron4.jpg");
+}
+
+/* removing indicators in carousel */
+.carousel-control-next-icon{
+  background-image : none;
+}
+.carousel-control-prev-icon{
+background-image : none;
 }
 
 .agroworld {
   text-align: center;
   font-size: 150px;
   color: #3E1E10;
-  margin: 0px auto 160px;
+  margin: 0px auto 150px;
+  font-family: "Lobster", cursive;
+}
+.slide-text{
+  text-align: center;
+  font-size: 90px;
+  color: #3E1E10;
   font-family: "Lobster", cursive;
 }
 /*Sell Page*/
@@ -224,6 +247,7 @@ body {
   box-shadow: -1px 4px 18px #888888;
   border-radius: 30px; 
   overflow: hidden;
+  margin-bottom: 8px;
 }
 .card-style:hover {
   cursor: pointer;
@@ -445,3 +469,11 @@ body {
   }
 }
 
+.adds-card-style {
+  margin: 4% auto;
+  width: 20rem;
+  height: 28rem;
+  box-shadow: -1px 4px 18px #888888;
+  border-radius: 30px; 
+  overflow: hidden;
+}

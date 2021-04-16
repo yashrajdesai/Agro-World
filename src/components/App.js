@@ -15,6 +15,7 @@ import Footer from './Footer';
 import { auth } from "../firebase";
 import { useStateValue } from "../StateProvider";
 import Loader from "./Loader"
+import Adds from './Adds';
 
 function App() {
 
@@ -88,6 +89,9 @@ function App() {
             </Route>
             <Route path="/fruits">
               <Fruits />
+            </Route>
+            <Route path="/adds">
+              <Adds />
             </Route>
           </Switch>
         </Router>
