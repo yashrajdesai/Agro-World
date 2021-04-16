@@ -247,6 +247,7 @@ background-image : none;
   box-shadow: -1px 4px 18px #888888;
   border-radius: 30px; 
   overflow: hidden;
+  margin-bottom: 8px;
 }
 .card-style:hover {
   cursor: pointer;
@@ -471,6 +472,7 @@ background-image : none;
 .adds-card-style {
   margin: 4% auto;
   width: 20rem;
+  height: 28rem;
   box-shadow: -1px 4px 18px #888888;
   border-radius: 30px; 
   overflow: hidden;
