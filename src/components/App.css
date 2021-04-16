@@ -445,3 +445,10 @@ body {
   }
 }
 
+.adds-card-style {
+  margin: 4% auto;
+  width: 20rem;
+  box-shadow: -1px 4px 18px #888888;
+  border-radius: 30px; 
+  overflow: hidden;
+}
