@@ -17,8 +17,8 @@ function Sell() {
     const [url,setUrl] = useState('');
     // const [dataStored,setDataStored] = useState('')
 
-    const [{user},dispatch] = useStateValue();
-    
+    const [{user,userId},dispatch] = useStateValue();
+    // console.log(userId);
     const handleSellerNameChange = e => {
         setsellerName(e.target.value); 
     };
@@ -62,7 +62,6 @@ function Sell() {
 
     const handleSubmit = (e)=> { 
         e.preventDefault();
-        if(description.length < 91 ) {}
 
             const uploadTask = storage.ref(`images/${image.name}`).put(image);
             uploadTask.on(
@@ -78,37 +77,28 @@ function Sell() {
                   .getDownloadURL()
                   .then(url => {
                     setUrl(url);
-                    console.log(url);
+                    // console.log(url);
+                    var currentdate = new Date(); 
+                    var date = currentdate.getDate() + "/"
+                    + (currentdate.getMonth()+1)  + "/" 
+                    + currentdate.getFullYear()
+                    console.log(date);
                     const itemData = {
-                        sellerName,
+                        sellerName:user.name,
                         itemName,
                         price,
                         description,
                         category,
-                        publicKey,
-                        city,
-                        state,
+                        publicKey:user.publicKey,
+                        phone:user.phone,
+                        city:user.city,
+                        state:user.state,
                         itemImageUrl : url,
-                        sellerId:user.uid,
-                        timeStamp : new Date()
+                        sellerId:userId,
+                        timeStamp : date
                     }
         
                     console.log(itemData);
-                    
-                    const listItemData = {
-                        image:url,
-                        category,
-                        title:itemName,
-                        price,
-                        desc:description,
-                        date:new Date().toISOString(),
-                        owner:sellerName,
-                        account_no:publicKey,
-                        city,
-                        state
-                    }
-
-                    productList.push(listItemData)
                     
                     db
                     .collection('Items')
@@ -131,14 +121,14 @@ function Sell() {
                 </div>
                 <Form onSubmit={handleSubmit} className="px-4">
 
-                    <Form.Group as={Row} controlId="SellerName">
+                    {/* <Form.Group as={Row} controlId="SellerName">
                         <Form.Label className="Sell-Labels" column lg="3" xs="4">
                             <strong>Seller's Name</strong> 
                         </Form.Label>
                         <Col lg="9" xs="8">
                             <Form.Control className="Sell-inputs" placeholder="Your Name" onChange={handleSellerNameChange} required/>
                         </Col>
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Form.Group as={Row} controlId="ItemName">
                         <Form.Label className="Sell-Labels" column lg="3" xs="4">
@@ -182,7 +172,7 @@ function Sell() {
                         
                     </Form.Group>
 
-                    <Form.Group as={Row} controlId="PublicKey">
+                    {/* <Form.Group as={Row} controlId="PublicKey">
                         <Form.Label className="Sell-Labels" column lg="3" xs="4">
                             <strong>Public Key</strong> 
                         </Form.Label>
@@ -207,7 +197,7 @@ function Sell() {
                         <Col lg="9" xs="8">
                             <Form.Control className="Sell-inputs" placeholder="State" onChange={handleStateChange} required/>
                         </Col>
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Form.Group as={Row} controlId="ItemImage">
                         <Form.Label className="Sell-Labels" column lg="3" xs="4">

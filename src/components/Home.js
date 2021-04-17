@@ -1,14 +1,32 @@
-import React,{ useState } from 'react';
+import React,{ useState,useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import { Jumbotron, Container, Button} from 'react-bootstrap';
+import { db } from "../firebase";
 import Product from "./Product";
 import Grid from '@material-ui/core/Grid';
 import productList from "./productList";
 
 function Home() {
 
+    
     const history = useHistory();
     const [isStripShown,setIsStripShown]=useState(true);
+    const [items,setItems] = useState([]);
+    
+    useEffect(() => {
+        
+        db
+        .collection('Items')
+        .onSnapshot(snapshot => (
+            setItems(snapshot.docs.map(doc=>({
+                id:doc.id,
+                data:doc.data()
+            })))
+        )
+        )
+        console.log(items);
+    },[]);
+
 
     const routeChange = () =>{ 
         let path = `/payment`; 
@@ -35,8 +53,8 @@ function Home() {
             </Jumbotron>
             <Grid container className="grid-container">
                {
-                   productList.map((eachProduct,index)=>{
-                    return <Product key={index} product={eachProduct} />
+                items.map((eachProduct,index)=>{
+                    return <Product key={index} product={eachProduct.data} />
                    })
                }
             </Grid>

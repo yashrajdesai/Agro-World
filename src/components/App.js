@@ -12,7 +12,7 @@ import Vegetables from './Vegetables';
 import Fruits from './Fruits';
 import NavbarComponent from './NavbarComponent';
 import Footer from './Footer';
-import { auth } from "../firebase";
+import { auth,db } from "../firebase";
 import { useStateValue } from "../StateProvider";
 import Loader from "./Loader"
 
@@ -30,15 +30,20 @@ function App() {
        setLoader(false);
     },4000)
 
-    auth.onAuthStateChanged((authUser) => {
+    auth.onAuthStateChanged(async(authUser) => {
       console.log("THE USER IS >>> ", authUser);
 
       if (authUser) {
         // the user just logged in / the user was logged in
-
+        const user = await db.collection('users').doc(authUser.uid).get();
+        // console.log(user.data().id);
         dispatch({
-          type: "SET_USER",
-          user: authUser,
+          type:"SET_USER",
+          user:user.data()
+        });
+        dispatch({
+          type: "SET_USER_ID",
+          userId: authUser.uid,
         });
       } else {
         // the user is logged out
