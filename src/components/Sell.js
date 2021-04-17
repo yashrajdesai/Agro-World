@@ -5,23 +5,15 @@ import { useStateValue } from "../StateProvider";
 import productList from './productList'
 
 function Sell() {
-    const [sellerName, setsellerName] = useState('');
     const [itemName, setItemName] = useState('');
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [category,setCategory]=useState('Cereal or Pulse');
-    const [publicKey, setpublicKey] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState2] = useState('');
     const [image,setImage] = useState(null);
     const [url,setUrl] = useState('');
     // const [dataStored,setDataStored] = useState('')
 
     const [{user},dispatch] = useStateValue();
-    
-    const handleSellerNameChange = e => {
-        setsellerName(e.target.value); 
-    };
 
     const handleItemNameChange = e => {
         setItemName(e.target.value);
@@ -38,18 +30,6 @@ function Sell() {
     const onChangeCategory = (e) =>{  
         setCategory(e.target.value);
     }
-
-    const handlepublicKeyChange = e => {
-        setpublicKey(e.target.value);
-    };
-
-    const handleCityChange = e => {
-        setCity(e.target.value);
-    };
-
-    const handleStateChange = e => {
-        setState2(e.target.value);
-    };
 
     const addFile = e => {
         console.log(e.target.files[0]);
@@ -80,14 +60,10 @@ function Sell() {
                     setUrl(url);
                     console.log(url);
                     const itemData = {
-                        sellerName,
                         itemName,
                         price,
                         description,
                         category,
-                        publicKey,
-                        city,
-                        state,
                         itemImageUrl : url,
                         sellerId:user.uid,
                         timeStamp : new Date()
@@ -102,10 +78,6 @@ function Sell() {
                         price,
                         desc:description,
                         date:new Date().toISOString(),
-                        owner:sellerName,
-                        account_no:publicKey,
-                        city,
-                        state
                     }
 
                     productList.push(listItemData)
@@ -125,20 +97,11 @@ function Sell() {
     return (
         <div className="mt-5">
 
+            <div className="sell-title">
+                <strong>Enter The Product Details</strong>
+            </div>
             <div className="Sell-Form">
-                <div className="Sell-title">
-                    <strong>Enter your Product Details</strong>
-                </div>
                 <Form onSubmit={handleSubmit} className="px-4">
-
-                    <Form.Group as={Row} controlId="SellerName">
-                        <Form.Label className="Sell-Labels" column lg="3" xs="4">
-                            <strong>Seller's Name</strong> 
-                        </Form.Label>
-                        <Col lg="9" xs="8">
-                            <Form.Control className="Sell-inputs" placeholder="Your Name" onChange={handleSellerNameChange} required/>
-                        </Col>
-                    </Form.Group>
 
                     <Form.Group as={Row} controlId="ItemName">
                         <Form.Label className="Sell-Labels" column lg="3" xs="4">
@@ -180,33 +143,6 @@ function Sell() {
                             </Form.Control>
                         </Col>
                         
-                    </Form.Group>
-
-                    <Form.Group as={Row} controlId="PublicKey">
-                        <Form.Label className="Sell-Labels" column lg="3" xs="4">
-                            <strong>Public Key</strong> 
-                        </Form.Label>
-                        <Col lg="9" xs="8">
-                            <Form.Control className="Sell-inputs" placeholder="Your Public key of Blockchain" onChange={handlepublicKeyChange} required />
-                        </Col>
-                    </Form.Group>
-
-                    <Form.Group as={Row} controlId="City">
-                        <Form.Label className="Sell-Labels" column lg="3" xs="4">
-                            <strong>City</strong> 
-                        </Form.Label>
-                        <Col lg="9" xs="8">
-                            <Form.Control className="Sell-inputs" placeholder="City" onChange={handleCityChange} required/>
-                        </Col>
-                    </Form.Group>
-
-                    <Form.Group as={Row} controlId="State">
-                        <Form.Label className="Sell-Labels" column lg="3" xs="4">
-                            <strong>State</strong> 
-                        </Form.Label>
-                        <Col lg="9" xs="8">
-                            <Form.Control className="Sell-inputs" placeholder="State" onChange={handleStateChange} required/>
-                        </Col>
                     </Form.Group>
 
                     <Form.Group as={Row} controlId="ItemImage">
