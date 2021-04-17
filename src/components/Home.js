@@ -5,6 +5,7 @@ import { db } from "../firebase";
 import Product from "./Product";
 import Grid from '@material-ui/core/Grid';
 import productList from "./productList";
+import Slides from "./Slides"
 
 function Home() {
 
@@ -45,12 +46,12 @@ function Home() {
                 <Button className="mx-4 my-2 donate-button" variant="light" onClick={routeChange}>Donate</Button> 
                 <Button className="mr-1 close" onClick={closeStrip}>&times;</Button>    
             </div>} 
-                    
-            <Jumbotron fluid className="jumbotron">
+            <Slides/>
+            {/* <Jumbotron fluid className="jumbotron">
                 <Container >                       
                     <h1 className="agroworld">Agro World</h1>
                 </Container>
-            </Jumbotron>
+            </Jumbotron> */}
             <Grid container className="grid-container">
                {
                 items.map((eachProduct,index)=>{

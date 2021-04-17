@@ -46,14 +46,14 @@ function NavbarComponent()
                         <Nav.Link  className="ml-4 mr-4"><span className="linkText">Orders</span></Nav.Link>
                     </LinkContainer>  
 
-                    <LinkContainer to="/payment">
-                        {/*<Nav.Link className="ml-4 mr-4">My Wallet</Nav.Link>*/}
-                        <Nav.Link className="ml-4 mr-4"><span className="linkText">My Wallet</span></Nav.Link>
-                    </LinkContainer>  
-
                     <LinkContainer to="/sell">
                         {/*<Nav.Link className="ml-4 mr-4">Sell</Nav.Link>*/}
                         <Nav.Link className="ml-4 mr-4"><span className="linkText">Sell</span></Nav.Link>
+                    </LinkContainer>  
+
+                    <LinkContainer to="/adds">
+                        {/*<Nav.Link className="ml-4 mr-4">My Wallet</Nav.Link>*/}
+                        <Nav.Link className="ml-4 mr-4"><span className="linkText">My Ads</span></Nav.Link>
                     </LinkContainer>  
 
                     <LinkContainer to="/statistics">
