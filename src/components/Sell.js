@@ -15,9 +15,6 @@ function Sell() {
 
     const [{user,userId},dispatch] = useStateValue();
     // console.log(userId);
-    const handleSellerNameChange = e => {
-        setsellerName(e.target.value); 
-    };
 
     const handleItemNameChange = e => {
         setItemName(e.target.value);
