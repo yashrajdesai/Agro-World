@@ -35,10 +35,10 @@ function Login() {
     return (
         <div>
             <Container align="center">
-                <div className="login-form" style={{height: "425px"}}>
-                    <div className="login-header text-center">
-                        <h2 className="login-header-name">LOGIN</h2>
-                    </div>
+                <div className="login-header text-center">
+                    <h2 className="login-header-name">LOGIN</h2>
+                </div>
+                <div className="login-form" style={{height: "320px" ,marginBottom:"109px"}}>
                     <Form align="left" style={{paddingTop: "20px"}} onSubmit={handleSubmit}>
         
                         <Form.Group controlId="email">
