@@ -2,23 +2,26 @@ import React, { useEffect, useState } from 'react';
 import Product from "./Product";
 import Grid from '@material-ui/core/Grid';
 import productList from "./productList.js";
-
+import { db } from '../firebase';
 
 function Fruits() {
 
     const [fruitList,setFruitList] = useState([]);
 
     useEffect(() => {
-        filterProduct();
+        db
+        .collection('Items')
+        .where('category','==','Fruit')
+        .onSnapshot(snapshot => (
+            setFruitList(snapshot.docs.map(doc=>({
+                id:doc.id,
+                data:doc.data()
+            })))
+        )
+        )
     }, [])
 
-    function checkFruits(product) {
-        return product.category==="fruits";
-    }
-
-    function filterProduct() {
-        setFruitList(productList.filter(checkFruits));
-    }
+    
 
     return (
         <div>
@@ -27,7 +30,7 @@ function Fruits() {
             {
                 
                 fruitList.map((eachProduct,index)=>{
-                    return <Product key={index} product={eachProduct} />
+                    return <Product key={index} product={eachProduct.data} />
                    })
             }
             </Grid>

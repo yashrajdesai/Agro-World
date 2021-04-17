@@ -2,22 +2,24 @@ import React, { useEffect, useState } from 'react';
 import Product from "./Product";
 import Grid from '@material-ui/core/Grid';
 import productList from "./productList";
+import { db } from '../firebase';
 
 function CerealsAndPulses() {
 
     const [pulsesList,setPulsesList] = useState([]);
 
     useEffect(() => {
-        filterProduct();
+        db
+        .collection('Items')
+        .where('category','==','Cereal or Pulse')
+        .onSnapshot(snapshot => (
+            setPulsesList(snapshot.docs.map(doc=>({
+                id:doc.id,
+                data:doc.data()
+            })))
+        )
+        )
     }, [])
-
-    function checkPulses(product) {
-        return product.category==="cereals & pulses";
-    }
-
-    function filterProduct() {
-        setPulsesList(productList.filter(checkPulses));
-    }
 
     return (
         <div>
@@ -26,7 +28,7 @@ function CerealsAndPulses() {
             <Grid container>
                {
                 pulsesList.map((eachProduct,index)=>{
-                    return <Product key={index} product={eachProduct} />
+                    return <Product key={index} product={eachProduct.data} />
                    })
                }
             </Grid>

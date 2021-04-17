@@ -13,7 +13,8 @@ function Sell() {
     const [url,setUrl] = useState('');
     // const [dataStored,setDataStored] = useState('')
 
-    const [{user},dispatch] = useStateValue();
+    const [{user,userId},dispatch] = useStateValue();
+    // console.log(userId);
 
     const handleItemNameChange = e => {
         setItemName(e.target.value);
@@ -42,7 +43,6 @@ function Sell() {
 
     const handleSubmit = (e)=> { 
         e.preventDefault();
-        if(description.length < 91 ) {}
 
             const uploadTask = storage.ref(`images/${image.name}`).put(image);
             uploadTask.on(
@@ -58,29 +58,28 @@ function Sell() {
                   .getDownloadURL()
                   .then(url => {
                     setUrl(url);
-                    console.log(url);
+                    // console.log(url);
+                    var currentdate = new Date(); 
+                    var date = currentdate.getDate() + "/"
+                    + (currentdate.getMonth()+1)  + "/" 
+                    + currentdate.getFullYear()
+                    console.log(date);
                     const itemData = {
+                        sellerName:user.name,
                         itemName,
                         price,
                         description,
                         category,
+                        publicKey:user.publicKey,
+                        phone:user.phone,
+                        city:user.city,
+                        state:user.state,
                         itemImageUrl : url,
-                        sellerId:user.uid,
-                        timeStamp : new Date()
+                        sellerId:userId,
+                        timeStamp : date
                     }
         
                     console.log(itemData);
-                    
-                    const listItemData = {
-                        image:url,
-                        category,
-                        title:itemName,
-                        price,
-                        desc:description,
-                        date:new Date().toISOString(),
-                    }
-
-                    productList.push(listItemData)
                     
                     db
                     .collection('Items')
