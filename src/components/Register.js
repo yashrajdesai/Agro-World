@@ -81,10 +81,10 @@ function Register() {
     return (
         <div>
             <Container align="center">
-                <div className="register-form">
-                    <div className="register-header text-center">
+            <div className="register-header text-center">
                         <h2 className="register-header-name">REGISTER</h2>
-                    </div>
+            </div>
+                <div className="register-form">
                     <Form align="left" style={{paddingTop: "20px"}} onSubmit={handleSubmit}>
                         
                         <Form.Group controlId="name">
