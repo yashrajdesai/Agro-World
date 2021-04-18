@@ -30,7 +30,7 @@ function Login() {
     };
 
     const handleClick = e => {
-        history.push('/Register')
+        history.push('/register')
     };
     return (
         <div>
@@ -58,7 +58,7 @@ function Login() {
                         <br />
                         <br />
                         <br />
-                        <a className="login" href="/Register" onClick={handleClick}>Don't Have An Account, Create Now!!</a>
+                        <a className="login" href="#" onClick={handleClick}>Don't Have An Account, Create Now!!</a>
                         </div>
                     </Form>
                 </div>

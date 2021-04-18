@@ -79,10 +79,10 @@ body {
   padding: 11% 0;
 }
 .slide1 {
-  background-image: url("../jumbotron1.jpg");
+  background-image: url("../agri-1.jpg");
 }
 .slide2 {
-  background-image: url("../jumbotron.jpeg");
+  background-image: url("../AgroWorld.png");
 }
 .slide3 {
   background-image: url("../jumbotron4.jpg");
@@ -181,7 +181,7 @@ body {
 
 .login-form,
 .register-form {
-  height: 750px;
+  height: 720px;
   /* background: linear-gradient(180deg, #1abc9c 0%, rgba(10, 190, 6, 0) 100%); */
   border: 3px solid black;
   border-radius: 8px;
