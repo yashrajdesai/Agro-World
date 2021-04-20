@@ -73,11 +73,11 @@ function Orders() {
                                         
                                          <h3 >{eachOrder.data.itemName}</h3>
                                          
-                                            <p>Amount : {eachOrder.data.amount}</p>
-                                            <p>Buyer Name : {eachOrder.data.buyerName}</p>
-                                            <p>Buyer Key: {eachOrder.data.buyerPublicKey}</p>
-                                            <strong><p>Posted Date : {eachOrder.data.postedDate}</p></strong>
-                                            <strong><p>Order Date : {eachOrder.data.orderDate}</p></strong>
+                                            <p><strong>Amount </strong>: {eachOrder.data.amount}</p>
+                                            <p><strong>Buyer Name </strong>: {eachOrder.data.buyerName}</p>
+                                            <p><strong>Buyer Key </strong>: {eachOrder.data.buyerPublicKey}</p>
+                                            <p><strong>Posted Date </strong>: {eachOrder.data.postedDate}</p>
+                                            <p><strong>Order Date </strong>: {eachOrder.data.orderDate}</p>
                                      </Col>
                                    </Row>
                                </Card>
@@ -95,13 +95,13 @@ function Orders() {
                                     
                                      <h3 >{eachOrder.data.itemName}</h3>
                                      
-                                        <p>Amount : {eachOrder.data.amount}</p>
+                                        <p><strong>Amount </strong>: {eachOrder.data.amount} Rs</p>
                                         
-                                        <p>Seller Name : {eachOrder.data.sellerName}</p>
+                                        <p><strong>Seller Name </strong>: {eachOrder.data.sellerName}</p>
 
-                                        <p>Seller Key: {eachOrder.data.sellerPublicKey}</p>
-                                        <strong><p>Posted Date : {eachOrder.data.postedDate}</p></strong>
-                                        <strong><p>Order Date : {eachOrder.data.orderDate}</p></strong>
+                                        <p><strong>Seller Key </strong>: {eachOrder.data.sellerPublicKey}</p>
+                                        
+                                        <p><strong>Order Date </strong>: {eachOrder.data.orderDate}</p>
                                  </Col>
                                </Row>
                            </Card>

@@ -82,10 +82,10 @@ body {
   background-image: url("../jumbotron1.jpg");
 }
 .slide2 {
-  background-image: url("../jumbotron.jpeg");
+  background-image: url("../jumbotron2.jpeg");
 }
 .slide3 {
-  background-image: url("../jumbotron4.jpg");
+  background-image: url("../jumbotron3.jpeg");
 }
 
 /* removing indicators in carousel */
