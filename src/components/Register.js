@@ -80,7 +80,7 @@ function Register() {
     };
     return (
         <div>
-            <Container align="center">
+            <Container align="center" style={{marginBottom: "40px"}}>
             <div className="register-header text-center">
                         <h2 className="register-header-name">REGISTER</h2>
             </div>

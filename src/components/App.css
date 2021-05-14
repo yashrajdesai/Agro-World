@@ -82,10 +82,10 @@ body {
   background-image: url("../jumbotron1.jpg");
 }
 .slide2 {
-  background-image: url("../jumbotron.jpeg");
+  background-image: url("../jumbotron2.jpeg");
 }
 .slide3 {
-  background-image: url("../jumbotron4.jpg");
+  background-image: url("../jumbotron3.jpeg");
 }
 
 /* removing indicators in carousel */
@@ -292,6 +292,11 @@ body {
   width: 500px;
   height: 500px;
   margin-left: 10%;
+}
+
+.statsSelector select {
+  margin-left: 15px;
+  width: 100px;
 }
 
 @media (min-width: 480px) {
