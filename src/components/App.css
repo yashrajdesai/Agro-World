@@ -294,6 +294,11 @@ body {
   margin-left: 10%;
 }
 
+.statsSelector select {
+  margin-left: 15px;
+  width: 100px;
+}
+
 @media (min-width: 480px) {
   .pie-chart {
     width: 420px;
