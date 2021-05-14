@@ -3,6 +3,8 @@ import { Button,Row,Container,Col, Card} from 'react-bootstrap';
 import Product from "./Product";
 import Grid from '@material-ui/core/Grid';
 import productList from "./productList";
+import CloseIcon from '@material-ui/icons/Close';
+import { IconButton } from '@material-ui/core';
 import { db } from '../firebase';
 import { useStateValue } from '../StateProvider';
 
@@ -26,7 +28,9 @@ const Adds = () => {
         
     }, [])
 
-    
+    const removeItem = (id) => {
+        db.collection('Items').doc(id).delete();
+    }
 
     return (
         <div>
@@ -36,6 +40,9 @@ const Adds = () => {
                     myItems.map((eachProduct)=>{
                     return <Col lg={4}>
                                 <Card className="adds-card-style" >
+                                    <IconButton onClick={() => {removeItem(eachProduct.id)}} style={{backgroundColor: "red",outline: "none",color: "white",position: "absolute",top:"8px",right: "16px",padding:"0"}}>
+                                        <CloseIcon />
+                                    </IconButton>
                                     <Card.Img variant="top" className="card-img" src={eachProduct.data.itemImageUrl} />
                                     <Card.Body style={{backgroundColor: "#70c745", color: "white"}}>
                                         <Card.Title className="card-title">

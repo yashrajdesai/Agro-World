@@ -484,4 +484,5 @@ body {
   box-shadow: -1px 4px 18px #888888;
   border-radius: 30px;
   overflow: hidden;
+  position: relative;
 }
