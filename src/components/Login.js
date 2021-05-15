@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import React, {useState} from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
+import { auth } from '../firebase';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -17,10 +18,15 @@ function Login() {
     const history = useHistory();
 
     const handleSubmit = e => {
-        e.preventDefault();
-        console.log(email)
-        console.log(password)
-        history.push('/Home')
+            e.preventDefault();
+    
+            auth
+                .signInWithEmailAndPassword(email, password)
+                .then(auth => {
+                    history.push('/')
+                })
+                .catch(error => alert(error.message))
+    
     };
 
     const handleClick = e => {
@@ -29,10 +35,10 @@ function Login() {
     return (
         <div>
             <Container align="center">
-                <div className="login-form" style={{height: "425px"}}>
-                    <div className="login-header text-center">
-                        <h2 className="login-header-name">LOGIN</h2>
-                    </div>
+                <div className="login-header text-center">
+                    <h2 className="login-header-name">LOGIN</h2>
+                </div>
+                <div className="login-form" style={{height: "320px" ,marginBottom:"109px"}}>
                     <Form align="left" style={{paddingTop: "20px"}} onSubmit={handleSubmit}>
         
                         <Form.Group controlId="email">
@@ -52,7 +58,7 @@ function Login() {
                         <br />
                         <br />
                         <br />
-                        <a className="login" href="/Register" onClick="handleClick">Don't Have An Account, Create Now!!</a>
+                        <a className="login" href="#" onClick={handleClick}>Don't Have An Account, Create Now!!</a>
                         </div>
                     </Form>
                 </div>

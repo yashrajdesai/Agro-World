@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState }  from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './Home';
 import Payment from './Payment';
@@ -12,12 +12,56 @@ import Vegetables from './Vegetables';
 import Fruits from './Fruits';
 import NavbarComponent from './NavbarComponent';
 import Footer from './Footer';
+import { auth,db } from "../firebase";
+import { useStateValue } from "../StateProvider";
+import Loader from "./Loader"
+import Adds from './Adds';
 
 function App() {
-  return (
+
+  const [{}, dispatch] = useStateValue();
+
+  const [loader,setLoader]=useState(false);
+
+  useEffect(() => {
+    // will only run once when the app component loads...
+
+    setLoader(true);
+    setTimeout(()=>{
+       setLoader(false);
+    },4000)
+
+    auth.onAuthStateChanged(async(authUser) => {
+      console.log("THE USER IS >>> ", authUser);
+
+      if (authUser) {
+        // the user just logged in / the user was logged in
+        const user = await db.collection('users').doc(authUser.uid).get();
+        // console.log(user.data().id);
+        dispatch({
+          type:"SET_USER",
+          user:user.data()
+        });
+        dispatch({
+          type: "SET_USER_ID",
+          userId: authUser.uid,
+        });
+      } else {
+        // the user is logged out
+        dispatch({
+          type: "SET_USER",
+          user: null,
+        });
+      }
+    });
+  }, []);
+
+  return ( 
     
       
       <div>
+      {
+        loader ? <Loader/> :
         <Router >
         <NavbarComponent />
           <Switch>
@@ -51,13 +95,14 @@ function App() {
             <Route path="/fruits">
               <Fruits />
             </Route>
+            <Route path="/adds">
+              <Adds />
+            </Route>
           </Switch>
-          <Footer />
         </Router>
+      }
       </div>
-     
-    
-  )
+  );
 }
 
 export default App

@@ -3,6 +3,8 @@ import INR from '../INR.png';
 import './App.css';
 import Web3 from 'web3';
 import DaiTokenMock from '../abis/DaiTokenMock.json'
+import {itemName,itemImage,buyerId,sellerId,sellerName,orderDate,publicKey,buyerName,buyerPublicKey,postedDate} from './Product.js';
+import { db } from '../firebase';
 
 class Payment1 extends Component {
   async componentWillMount() {
@@ -24,27 +26,46 @@ class Payment1 extends Component {
   }
 
   async loadBlockchainData() {
+    
     const web3 = window.web3
-    console.log(web3);
+    // console.log(web3);
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
-    console.log(this.state.account);
-    const daiTokenAddress = "0x7691B75d3aAED69F63d15bDe4490d926CAD94C93" // Replace DAI Address Here
+    // console.log(this.state.account);
+    const daiTokenAddress = "0x168c5D133747b3332d5285026a4Fe865FeB065bb" // Replace DAI Address Here
     const daiTokenMock = new web3.eth.Contract(DaiTokenMock.abi, daiTokenAddress)
     this.setState({ daiTokenMock: daiTokenMock })
-    console.log(daiTokenMock);
+    // console.log(daiTokenMock);
     const balance = await  daiTokenMock.methods.balanceOf(this.state.account).call();
     this.setState({ balance: web3.utils.fromWei(balance.toString(), 'Ether') })
     console.log(balance.toString());
     const transactions = await daiTokenMock.getPastEvents('Transfer', { fromBlock: 0, toBlock: 'latest', filter: { from: this.state.account } })
     this.setState({ transactions: transactions })
-    console.log(transactions)
+    // console.log(transactions)
   }
 
   transfer(recipient, amount) {
     this.state.daiTokenMock.methods.transfer(recipient, amount).send({ from: this.state.account })
-    
+    const order = {
+      itemName,
+      itemImage,
+      amount:(amount/1000000000000000000),
+      buyerId,
+      sellerId,
+      sellerName,
+      buyerName,
+      orderDate,
+      postedDate,
+      sellerPublicKey:publicKey,
+      buyerPublicKey
     }
+    console.log(order);
+    
+    db
+    .collection('Orders')
+    .add(order)
+
+  }
 
   constructor(props) {
     super(props)
@@ -75,24 +96,25 @@ class Payment1 extends Component {
                 <h1>{this.state.balance} INR</h1>
                 <form onSubmit={(event) => {
                   event.preventDefault()
-                  const recipient = this.recipient.value
+                  const recipient = publicKey
                   const amount = window.web3.utils.toWei(this.amount.value, 'Ether')
                   this.transfer(recipient, amount)
                 }}>
                   <div className="form-group mr-sm-2">
-                    <input
+                  <input
                       id="recipient"
                       type="text"
                       ref={(input) => { this.recipient = input }}
                       className="form-control"
-                      placeholder="Recipient Address"
-                      required />
+                      placeholder={publicKey}
+                      readOnly />
                   </div>
                   <div className="form-group mr-sm-2">
                     <input
                       id="amount"
                       type="text"
                       ref={(input) => { this.amount = input }}
+                      
                       className="form-control"
                       placeholder="Amount"
                       required />
