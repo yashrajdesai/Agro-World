@@ -3,8 +3,11 @@ import {Button, Col, Row, Form} from 'react-bootstrap';
 import { db,storage } from "../firebase";
 import { useStateValue } from "../StateProvider";
 import productList from './productList'
+import Modal from 'react-bootstrap/Modal'
+import { useHistory } from 'react-router';
 
 function Sell() {
+    let history=useHistory();
     const [itemName, setItemName] = useState('');
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
@@ -12,6 +15,11 @@ function Sell() {
     const [image,setImage] = useState(null);
     const [url,setUrl] = useState('');
     // const [dataStored,setDataStored] = useState('')
+    const [show, setShow] = useState(true);
+    const handleClose = () =>{
+        setShow(false);
+        history.push("/login");
+    } 
 
     const [{user,userId},dispatch] = useStateValue();
     // console.log(userId);
@@ -94,6 +102,7 @@ function Sell() {
     
 
     return (
+        user ?
         <div className="mt-5">
 
             <div className="sell-title">
@@ -165,7 +174,13 @@ function Sell() {
                 </Form>           
             </div>
             
-        </div>
+        </div>:
+        <Modal show={show} onHide={handleClose} centered className="error-modal">
+        <Modal.Header className="error-modal-header" closeButton>
+          <Modal.Title className="error-modal-title">You Need To Login</Modal.Title>
+        </Modal.Header>
+        <Modal.Body classNme="error-modal-body"><p>Please <a href="/login" className="login-anchor">login</a> to your account to vist this page</p></Modal.Body>
+      </Modal>
     )
 }
 
