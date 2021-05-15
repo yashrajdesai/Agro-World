@@ -294,15 +294,38 @@ body {
   margin-left: 10%;
 }
 
+.site-chart {
+  height: 500px;
+  margin-left: 3%;
+}
+
 .statsSelector select {
   margin-left: 15px;
   width: 100px;
 }
 
 @media (min-width: 480px) {
-  .pie-chart {
+  .pie-chart,
+  .site-chart {
     width: 420px;
     margin-left: 3%;
+  }
+}
+
+@media (min-width: 768px) {
+  .pie-chart {
+    width: 500px;
+    margin-left: 3%;
+  }
+  .site-chart {
+    width: 700px;
+  }
+}
+
+@media (min-width: 992px) {
+  .site-chart {
+    width: 900px;
+    margin-left: 10%;
   }
 }
 
