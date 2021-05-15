@@ -12,14 +12,14 @@ function Slides() {
 
   return (
     <Carousel>
-      <Carousel.Item interval={1000}>
+      <Carousel.Item interval={4000}>
             <Jumbotron fluid className="jumbotron slide1">
                 <Container >                       
                     <h1 className="agroworld">Agro World</h1>
                 </Container>
             </Jumbotron>
       </Carousel.Item>
-      <Carousel.Item interval={1000}>
+      <Carousel.Item interval={4000}>
             <Jumbotron fluid className="jumbotron slide2">
                 <Container >                       
                      <h1 className="slide-text">Buy your daily food essentials with the best quality from the best producers
@@ -29,7 +29,7 @@ function Slides() {
                 </Container>
             </Jumbotron>
       </Carousel.Item>
-      <Carousel.Item interval={1000}>
+      <Carousel.Item interval={4000}>
             <Jumbotron fluid className="jumbotron slide3">
                 <Container >                       
                     <h1 className="slide-text">Sell your agro products directly to your potential customers without any middleman!</h1>
