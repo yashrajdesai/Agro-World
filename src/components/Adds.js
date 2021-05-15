@@ -7,11 +7,18 @@ import CloseIcon from '@material-ui/icons/Close';
 import { IconButton } from '@material-ui/core';
 import { db } from '../firebase';
 import { useStateValue } from '../StateProvider';
+import Modal from 'react-bootstrap/Modal'
+import { useHistory } from "react-router-dom"
 
 const Adds = () => {
-
-    const [{userId},dispatch] = useStateValue();
+    let history = useHistory()
+    const [{userId,user},dispatch] = useStateValue();
     const [myItems,setMyItems] = useState([]);
+    const [show, setShow] = useState(true);
+    const handleClose = () =>{
+        setShow(false);
+        history.push("/login");
+    } 
 
     useEffect(() => {
         
@@ -33,6 +40,7 @@ const Adds = () => {
     }
 
     return (
+        (user)?
         <div>
             <h1 className="text-center mt-4 heading">My Ads</h1>
             <Row>
@@ -60,7 +68,14 @@ const Adds = () => {
                 }
             </Row>
 
-        </div>
+        </div>:
+         <Modal show={show} onHide={handleClose} centered className="error-modal">
+         <Modal.Header className="error-modal-header" closeButton>
+           <Modal.Title className="error-modal-title">You Need To Login</Modal.Title>
+         </Modal.Header>
+         <Modal.Body classNme="error-modal-body"><p>Please <a href="/login" className="login-anchor">login</a> to your account to vist this page</p></Modal.Body>
+       </Modal>
+
     )
 }
 
